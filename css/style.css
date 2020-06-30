@@ -161,7 +161,9 @@ color: var(--second-color);
   background-size: cover;
   min-height: 100vh;
 }
-
+.offer>.container {
+  min-height: 100vh;
+}
 .offer_bg {
   background-color: black;
   opacity: 0.7;
@@ -181,6 +183,8 @@ h1 {
   font-size: 2.5em;
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
   text-transform: uppercase;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .main-description {
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
@@ -214,8 +218,8 @@ h1 {
 
 .action {
   position: absolute;
-  top: 400px;
-  right: 0;
+  top: 250px;
+  right: 20px;
   box-shadow: 0px 0px 2px 2px #000;
 }
 
@@ -242,7 +246,7 @@ h1 {
 #contact-form_1 {
   position: absolute;
   left: 170px;
-  top: 550px;
+  bottom: 100px;
   width:270px;
   height: 230px;
   background-color: var(--primary-color);
@@ -316,6 +320,18 @@ h1 {
   .wrap {
     max-width: 960px;
   }
+  #contact-form_1 {
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+    width:270px;
+    height: 230px;
+  }
+  .action {
+    position: absolute;
+    top: 250px;
+    right: 20px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -324,6 +340,16 @@ h1 {
   }
   .wrap {
     max-width: 900px;
+  }
+  #contact-form_1 {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+  }
+  .action {
+    position: absolute;
+    top: 250px;
+    right: 10px;
   }
 } 
 
@@ -335,7 +361,14 @@ h1 {
   .wrap {
     max-width: 100%;
   }
-
+  #contact-form_1 {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+  }
+  .action {
+    display: none;
+  }
 }
 
 @font-face {
