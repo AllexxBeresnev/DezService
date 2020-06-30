@@ -4,8 +4,9 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 
-  --main-link-color: rgba(37, 247, 9, 0.931);      
-  --main-text-color: rgb(250, 246, 246);            
+  --second-color: rgba(53, 218, 32, 0.931);      
+  --primary-color: rgb(250, 246, 246); 
+  --form-color: rgb(11, 175, 11);           
 }
 
 .border {
@@ -51,25 +52,26 @@
   max-width: 1170px;
 }
 
-.navbar__logo{
+.navbar-logo{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;  
   flex-direction: column; 
 }
 
-.logo__text {
-  color:var(--main-link-color);
+.navbar-logo-text {
+  color:var(--second-color);
   font-weight: 800;
   font-size: 1.4em;
   text-transform: uppercase;
 }
-.logo__description{
-  color: var(--main-text-color);
+
+.navbar-logo-description{
+  color: var(--primary-color);
   font-size: 1em;
 }
 
-.menu__list {
+.navbar-menu-list {
   position: relative;
   margin: 0;
   padding: 0;
@@ -77,71 +79,68 @@
   flex-wrap: wrap;
   align-items: center;
   flex-direction: row; 
-  color: var(--main-text-color);
+  color: var(--primary-color);
   justify-content:space-between;
   
 }
 
-.menu__list li {
+.navbar-menu-list li {
   list-style: none;
   padding-left: 20px;
 }
 
-.listitem_link{
+.navbar-menu-listitem-link{
   text-decoration: none;  
   text-transform: uppercase;
-  color: var(--main-text-color);
+  color: var(--primary-color);
 }
-.navbar__mobile {
+.navbar-mobile {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   flex-direction: column;
   
 }
-.navbar__phone {
+.navbar-mobile-phone {
 font-size: 1.2em;
 display: inline-block;
 text-decoration: none;
 font-weight: 700;
-color: var(--main-link-color);
+color: var(--second-color);
 }
 
-.navbar__work-time {
+.navbar-mobile-worktime {
   display: inline-block;
-  color: var(--main-text-color);
+  color: var(--primary-color);
 }
 
 /* Конец области меню*/
 
 /* Первый Экран*/
 .offer {
-  background-color:#fff;  
+  background-color: var(--primary-color);  
   background-image: url(../img/bg3.jpg);
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
   min-height: 100vh;
 }
-.hero{
-  
-}
 
 h1 {
   margin: 0;
 }
 
-.main__title{
+.main-title{
   text-align: center;
-  color: var(--main-text-color);
+  color: var(--primary-color);
   padding-top: 2.7em;
   font-size: 2.5em;
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
   text-transform: uppercase;
 }
-.main__description {
+.main-description {
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
-  color: var(--main-text-color);
+  color: var(--primary-color);
   text-align: center;
 }
 
@@ -149,16 +148,16 @@ h1 {
   position: absolute;
   left:7em;
   display: inline-block;
-  border: 1px dashed #1daf27;
+  border: 1px dashed var(--second-color);
   border-radius: 4px;
 }
 
-.main__price {
-  background-color: #1daf27;
+.main-price {
+  background-color: var(--second-color);
   margin: 3px;
   height: 64px;
   line-height: 60px;
-  color: #fff;
+  color: var(--primary-color);
   font-size: 44px;
   padding: 0 19px 0 15px;
   text-align: center;
@@ -178,7 +177,7 @@ h1 {
 }
 
 .action_description {
-  background-color: white;
+  background-color: var(--primary-color);
   color: black;
   font-size: 1em;
   padding: 10px 20px;
@@ -195,8 +194,8 @@ h1 {
   top: 250px;
   width:270px;
   height: 230px;
-  background-color: white;
-  border: 3px solid green;
+  background-color: var(--primary-color);
+  border: 3px solid var(--form-color);
 }
 
 
@@ -212,7 +211,7 @@ h1 {
   display: block;
   margin-bottom: 15px;
   text-align: center;
-  color: green;
+  color: var(--form-color);
   font-size: 0.8em;
   font-weight: bold;
 }
@@ -236,12 +235,12 @@ h1 {
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--primary-color);
   line-height: 34px;
   font-size: 1em;
   border: none;
   border-radius: 4px;
-  background: #1daf27;
+  background: var(--form-color);
   padding: 0 12px;
   height: 44px;
   text-transform: uppercase;
