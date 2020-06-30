@@ -164,10 +164,7 @@ color: var(--second-color);
 .offer>.container {
   min-height: 100vh;
 }
-.offer_bg {
-  background-color: black;
-  opacity: 0.7;
-}
+
 
 h1 {
   margin: 0;
@@ -220,8 +217,11 @@ h1 {
   position: absolute;
   top: 250px;
   right: 20px;
+  
+  }
+  .action:hover {
   box-shadow: 0px 0px 2px 2px #000;
-}
+  }
 
 .action_title {
   background-color: rgb(238, 199, 24);
