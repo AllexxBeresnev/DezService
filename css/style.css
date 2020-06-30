@@ -116,24 +116,38 @@ color: var(--second-color);
 
 /* Конец области меню*/
 
+.blur {
+  filter: blur(8px);
+  z-index: -1;
+}
+
 /* Первый Экран*/
 .offer {
   background-color: var(--primary-color);  
-  background-image: url(../img/bg3.jpg);
+/*  background-image: url(../img/bg3.jpg);*/
+  background-image: url(../img/kitchen3_gaus1.jpg);  
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
   min-height: 100vh;
 }
 
+.offer_bg {
+  background-color: black;
+  opacity: 0.7;
+}
+
 h1 {
   margin: 0;
 }
 
+.hero {
+  position: relative;
+}
 .main-title{
   text-align: center;
   color: var(--primary-color);
-  padding-top: 2.7em;
+  padding-top: 3.7em;
   font-size: 2.5em;
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
   text-transform: uppercase;
@@ -145,9 +159,13 @@ h1 {
 }
 
 .main-price-holder{
-  position: absolute;
-  left:7em;
+/*  position: absolute;
+  left:7em;*/
   display: inline-block;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   border: 1px dashed var(--second-color);
   border-radius: 4px;
 }
@@ -167,13 +185,16 @@ h1 {
 .action {
   position: absolute;
   top: 400px;
-  left: 200px;
+  right: 0;
+  box-shadow: 0px 0px 2px 2px #000;
 }
 
 .action_title {
   background-color: rgb(238, 199, 24);
   font-size: 1.5em;
   padding: 10px 20px;
+  font-weight: bold;
+  text-align: right;
 }
 
 .action_description {
@@ -190,12 +211,13 @@ h1 {
 
 #contact-form_1 {
   position: absolute;
-  right: 100px;
-  top: 250px;
+  left: 170px;
+  top: 550px;
   width:270px;
   height: 230px;
   background-color: var(--primary-color);
   border: 3px solid var(--form-color);
+  box-shadow: 0px 0px 15px 5px #000;
 }
 
 
@@ -246,6 +268,16 @@ h1 {
   text-transform: uppercase;
   vertical-align: top;
 }
+
+.main-man-img {
+  /*box-shadow: 0px 0px 15px 10px #000;*/
+  /*filter: drop-shadow(0 15px 15px rgba(0,0,0,.5));*/
+  position: absolute;
+  bottom:0;
+  left: 50%;
+  /*transform: translateX(-100%);*/
+  height: 50%;
+  }
 
 @media (max-width: 1199px) {
   .container {
