@@ -381,7 +381,14 @@ border-radius:10px;
 }
 
 /*************************************************С Х Е М А **************************/
+.shema{
+  background-image: url(/img/to_parallax1.jpg);  
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
 .shema-wrap{
+  
   margin: 0 auto;
   padding-left: 100px;
   margin-bottom: 20px;
