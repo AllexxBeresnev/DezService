@@ -713,10 +713,19 @@ td {
 .sales {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .sales-sosed{
-  width: 30%;
+  
 }
+.sales-sosed p{
+  text-align: center;
+}
+.sales-sosed hr {
+  background-color:var(--form-color);
+}
+
 .sales-sosed-title{
   text-align: left;
   font-size: 1.5em;
@@ -734,7 +743,7 @@ td {
   color: red;
 }
 .form-middle{
-  width:30%;
+  width: 250px;
   height: 250px;
   border: 3px solid var(--form-color);
   /*box-shadow: 0px 0px 1px 1px #000;*/
