@@ -492,11 +492,15 @@ border-radius:10px;
   box-shadow: 7px 7px 5px rgba(0,0,0,0.6);
 }
 
+.for-anchor{
+  position:relative; 
+  top:-60px;
+}
+
 /***************************************************************************/
 .contacts{
   background-color: var(--primary-color);
-  padding-bottom: 30px;
-}
+  }
 .contactus {
   text-align: center;
   color: var(--primary-color);
