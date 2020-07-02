@@ -252,7 +252,7 @@ h1 {
   left: 170px;
   bottom: 100px;
   width:270px;
-  height: 230px;
+  height: 240px;
   background-color: var(--primary-color);
   border: 3px solid var(--form-color);
   box-shadow: 0px 0px 15px 5px #000;
@@ -306,7 +306,7 @@ h1 {
   text-transform: uppercase;
   vertical-align: top;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
-}
+  }
 
 .main-man-img {
   /*box-shadow: 0px 0px 15px 10px #000;*/
@@ -483,6 +483,7 @@ border-radius:10px;
   text-align: center;
   color: var(--primary-color);
   background-color: var(--form-color);
+  background: linear-gradient(to right, #68bb5d, #0d910d);
   padding: 20px 0;
   display: block;
   margin-top: 40px;
@@ -490,6 +491,7 @@ border-radius:10px;
   text-transform: uppercase;
   text-shadow: 0px 3px 3px rgba(26, 26, 26, 0.75);
   box-shadow: 7px 7px 5px rgba(0,0,0,0.6);
+
 }
 
 .for-anchor{
@@ -811,7 +813,7 @@ td {
     left: 70px;
     bottom: 70px;
     width:270px;
-    height: 230px;
+    height: 240px;
   }
   .action {
     position: absolute;
