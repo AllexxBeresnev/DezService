@@ -321,7 +321,7 @@ h1 {
 .services-wrap{
   display: flex;
   align-items:center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -710,6 +710,39 @@ td {
   }
 }
 
+.sales {
+  display: flex;
+  align-items: center;
+}
+.sales-sosed{
+  width: 30%;
+}
+.sales-sosed-title{
+  text-align: left;
+  font-size: 1.5em;
+  color:var(--form-color);
+  font-weight: bold;
+}
+.sales-skidki{
+  text-align: center;
+  margin-right: 20px;
+}
+.sales-per{
+  display:inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: red;
+}
+.form-middle{
+  width:30%;
+  height: 250px;
+  border: 3px solid var(--form-color);
+  /*box-shadow: 0px 0px 1px 1px #000;*/
+}
+.contact-form3__button{
+  font-weight: bold;
+  background: red;
+}
 
 /***************************************************************************/
 /***************************************************************************/
