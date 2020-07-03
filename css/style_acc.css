@@ -73,7 +73,7 @@
 	color: #777;
 	line-height: 23px;
 	font-size: 14px;
-	padding: 20px;
+	padding: 10px;
 	/*text-shadow: 1px 1px 1px rgba(255,255,255,0.8);*/
 }
 .ac-container input:checked ~ article{
@@ -85,11 +85,14 @@
 	box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
 }
 .ac-container input:checked ~ article.ac-small{
-	height: 140px;
+/*	height: 140px;*/
+	height: 100%;
 }
 .ac-container input:checked ~ article.ac-medium{
-	height: 180px;
+/* 	height: 180px; */
+	height: 100%;
 }
 .ac-container input:checked ~ article.ac-large{
-	height: 230px;
+/* 	height: 230px; */
+	height: 100%;
 }
