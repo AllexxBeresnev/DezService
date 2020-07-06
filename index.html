@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТомскДезСервис - уничтожение насекомых</title>
+    <title>ТомскДезСервис - уничтожения насекомых, плесени и грызунов</title>
+    <meta name="description" content="Служба СЭС Томска. Уничтожение насекомых в Томске и Томской области. Организация оказывает услуги дезинсекции, избавит от клопов, тараканов, блох, клещей, плесени и грызунов."/>
+    <meta name="keywords" content="уничтожение, дезинсекция, дератизация, клопы, муравьи, тараканы, плесень."/>
     <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_acc.css">
     <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+        ym(65394433, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+        </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/65394433" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
     <script>new WOW().init();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+
 </head>
 <body>
     <header class="header">
@@ -44,7 +65,7 @@
                         </ul>
                     </div>
                     <div class="navbar-mobile">
-                        <a href="tel:+79521502591" class="navbar-mobile-phone">8 952 150 25 91</a>
+                        <a href="tel:+79521502591" class="navbar-mobile-phone" onclick="ym(65394433,'reachGoal','mobile-top')">8 952 150 25 91</a>
                         <span class="navbar-mobile-worktime">без выходных</span>
                     </div>
                     <div class="hamburger">
@@ -66,13 +87,66 @@
         <section class="offer">
             <div class="container">
                 <div class="hero">
-                    <h1 class="main-title">Уничтожение насекомых в Томске</h1>
-                    <h2 class="main-description">Избавим от клопов, тараканов, блох </br> и прочих вредных насекомых  </h2>                    
+                    <h1 class="main-title">Первая Служба дезинсекции<br> в Томске</h1>
+                    <h2 class="main-description">Уничтожение тараканов, клопов, насекомых,<br>плесени и грызунов<br>Антиклещевая обработка</h2>                    
                     <div class="main-price-holder">
                         <div class="main-price">
                             от 900р
                         </div>
                     </div>
+                    <div class="form1 border1">
+                        <form class="contact-form" 
+                            id="contact-form_1" method="POST" enctype="multipart/form-data" onsubmit="ym(65394433,'reachGoal','form-hero')">
+                            <span class="contact-form-title">
+                                ОСТАВЬТЕ ЗАЯВКУ
+                            </span>
+                         
+                            <span class="contact-form-title-desc">
+                                НА БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ
+                            </span>
+        
+                            <div class="form-area">
+                                
+                                <div class="form-group " data-for="name">
+                                    <input type="text" name="name" placeholder="Ваше имя" data-form-field="Name" 
+                                    required="required" class="form-control" id="input-name-form1">
+                                </div>
+                                
+                                <div data-for="phone" class="form-group">
+                                    <input type="tel" name="tel" placeholder="Ваш телефон" data-form-field="Phone" 
+                                    required="required" class="form-control" id="input-phone-form1">
+                                </div>
+                                <!-- <p class="contact-form__description"></p> -->
+                                <div class="messages"></div>
+                                <div class="form1-btn">
+                                    <button type="submit" id="form1-submit" class="contact-form__button"><span>Получить консультацию</span></button>
+                                </div>
+                            </div>
+                        </form>                            
+                    </div>
+                    <!-- Конец блока Формы-->
+                    <script>
+                        $(document).ready(function(){
+                               $('#form1-submit').click(function() {
+                                    event.preventDefault();
+                                   var form_name   = $('#input-name-form1').val();
+                                   var form_tel   = $('#input-phone-form1').val();
+                                   $.ajax({
+                                       url: "post.php", 
+                                       type: "post", 
+                                       dataType: "json", 
+                                       data: { 
+                                           "form_name":   form_name,
+                                           "form_tel":   form_tel
+                                       },
+                                       success: function(data){
+                                           $('.messages').html(data.result); 
+                                       }
+                                   });
+                               });
+                           });
+                      </script> 
+                           
                     <div class="action">
                         <div class="action_title">АКЦИЯ!</div>
                         <div class="action_description">
@@ -81,36 +155,6 @@
                         </div>
                     </div>
                 </div>
-            <div class="form1">
-                <form class="contact-form" action="scripts/mail.php"
-                    id="contact-form_1" method="POST" enctype="multipart/form-data" onsubmit="">
-                    <span class="contact-form-title">
-                        ОСТАВЬТЕ ЗАЯВКУ
-                    </span>
-                 
-                    <span class="contact-form-title-desc">
-                        НА БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ
-                    </span>
-
-                    <div class="form-area">
-                        
-                        <div class="form-group " data-for="name">
-                            <input type="text" name="name" placeholder="Ваше имя" data-form-field="Name" 
-                            required="required" class="form-control" id="input-name-form1">
-                        </div>
-                        
-                        <div data-for="phone" class="form-group">
-                            <input type="tel" name="tel" placeholder="Ваш телефон" data-form-field="Phone" 
-                            class="form-control" id="input-phone-form1">
-                        </div>
-                        
-                        <div class="form1-btn">
-                            <button type="submit" class="contact-form__button">Получить консультацию</button>
-                        </div>
-                    </div>
-                </form>                            
-            </div>
-            <!-- Конец блока Формы-->
             </div>
             <div class="main-man">
                  <img src="img/man4.png" alt="" class="main-man-img"> 
@@ -129,11 +173,11 @@
             </h2>
             <div class="container">
                 <div class="services-wrap">
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_klop.jpg" alt="Уничтожение клопов">
                             <div class="services-card-desc">
-                                <p>Компания «ТОМСК-ДЕЗ-СЕРВИС» предлагает профессиональное уничтожение клопов в Томске и Томской области.</p>
+                                <p>Оказываем услуги по профессиональному уничтожению клопов в Томске и Томской области.</p>
                             </div>
                             <!-- /.services-card-desc -->
     
@@ -145,11 +189,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_tarakan.jpg" alt="Уничтожение тараканов">
                             <div class="services-card-desc">
-                                <p>В компании «ТОМСК-ДЕЗ-СЕРВИС» вы можете заказать дезинсекцию тараканов.</p>
+                                <p>У нас Вы можете заказать услуги по дезинсекции тараканов.</p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -160,11 +204,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_bloh.jpg" alt="Уничтожение блох">
                             <div class="services-card-desc">
-                                <p>Служба по уничтожению блох в Томске и ТО «ТОМСК-ДЕЗ-СЕРВИС» оперативно и эффективно уничтожит надоевших вредителей. </p>
+                                <p>Наша служба уничтожит блох в Томске и Томской области оперативно и эффективно. </p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -175,11 +219,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_ants.jpg" alt="Уничтожение муравьев">
                             <div class="services-card-desc">
-                                <p>Компания «ТОМСК-ДЕЗ-СЕРВИС» предлагает уничтожение муравьев в Томске и Томской области мощными современными методами. </p>
+                                <p>Предлагаем услуги по уничтожению муравьев в Томске и Томской области мощными современными методами. </p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -190,11 +234,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_klesh.jpg" alt="Уничтожение клещей">
                             <div class="services-card-desc">
-                                <p>Предлагаем профессиональную обработку от клещей в Томске и Томской Области.</p>
+                                <p>Проводим профессиональную обработку от клещей в Томске и Томской Области.</p>
                             </div>
                             <!-- /.services-card-desc -->
                        </div>
@@ -205,11 +249,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_komar.jpg" alt="Уничтожение комаров">
                             <div class="services-card-desc">
-                                <p>Компания «ТОМСК-ДЕЗ-СЕРВИС» предлагает оперативную и качественную обработку от комаров.</p>
+                                <p>Предлагаем надежную и качественную обработку от комаров.</p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -220,11 +264,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_gryz.jpg" alt="Уничтожение грызунов">
                             <div class="services-card-desc">
-                                <p>Профессиональная служба по уничтожению грызунов «ТОМСК-ДЕЗ-СЕРВИС» выведет вредителей на любых территориях.</p>
+                                <p>Наши специалисты избавят Вас от вредителей на любых территориях.</p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -235,11 +279,11 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_plesen.jpg" alt="Уничтожение плесени">
                             <div class="services-card-desc">
-                                <p>Компания «ТОМСК-ДЕЗ-СЕРВИС» предлагает оперативную и качественную обработку от плесени и грибка.</p>
+                                <p>Мы предлагаем оперативную и качественную обработку от плесени и грибка.</p>
                             </div>
                             <!-- /.services-card-desc -->
                         </div>
@@ -250,7 +294,7 @@
                         <!-- /.services-card-title -->                        
                     </div>
                     <!-- /.services-card -->
-                    <div class="services-card wow bounceInUp">
+                    <div class="services-card wow flipInY">
                         <div class="services-card-img">
                             <img src="img/unicht_zapah.jpg" alt="Устранение запахов">
                             <div class="services-card-desc">
@@ -271,25 +315,41 @@
             </div>
         </section>
 <!------------------------------Third block    Advantages          -->            
-        <section class="advantages">
+
+            <div class="for-anchor" id="advantages">
+            </div>
+
+            <section class="advantages">
             <h2 class="section-title">
                 Наши преимущества
             </h2>
             <div class="container">
                 <div class="adv-wrap">
                     <div class="adventage">
+                        <div class="adv-img wow bounceInLeft">
+                             <img class="rotate" src="img/adv3.png" alt="">       
+                        </div> 
+                        <div class="adv-title">
+                            ОПЕРАТИВНОСТЬ 
+                        </div>
+                        <div class="adv-desc">
+                             Звоните нам круглосуточно, без выходных. Приедем точно в согласованное время, подстроимся под Ваш график. Стандартная процедура длится всего несколько часов.
+                        </div>
+                     </div>
+
+                    <div class="adventage">
                        <div class="adv-img wow bounceInLeft">
                             <img class="rotate" src="img/adv1.png" alt="">       
                        </div> 
                        <div class="adv-title">
-                            ГАРАНТИЯ
+                        АНОНИМНОСТЬ
                        </div>
                        <div class="adv-desc">
-                            Официальная гарантия уничтожения насекомых и вредителей — от 1 до 5 лет (в зависимости от вида обработки). Бесплатное обслуживание весь гарантийный срок.
+                            Наши специалисты приезжают на авто без логотипов и не привлекают к себе внимание соседей. Оборудование проносится в неприметном виде. 
                        </div>
                     </div>
                     <div class="adventage">
-                        <div class="adv-img wow bounceInLeft">
+                        <div class="adv-img wow bounceInRight">
                              <img class="rotate" src="img/adv2.png" alt="">       
                         </div> 
                         <div class="adv-title">
@@ -301,21 +361,10 @@
                      </div>
                      <div class="adventage">
                         <div class="adv-img wow bounceInRight">
-                             <img class="rotate" src="img/adv3.png" alt="">       
-                        </div> 
-                        <div class="adv-title">
-                            ОПЕРАТИВНОСТЬ 
-                        </div>
-                        <div class="adv-desc">
-                             Звоните нам круглосуточно, без выходных. Приедем точно в согласованное время, подстроимся под Ваш график. Стандартная процедура длится всего несколько часов.
-                        </div>
-                     </div>
-                     <div class="adventage">
-                        <div class="adv-img wow bounceInRight">
                              <img class="rotate" src="img/adv4.png" alt="">       
                         </div> 
                         <div class="adv-title">
-                            ПРИЕМЛЕМЫЕ ЦЕНЫ 
+                            ЦЕНЫ 
                         </div>
                         <div class="adv-desc">
                              У нас обоснованные расценки, соответствующие уровню применяемых препаратов и высоким стандартам проводимых работ. Предусмотрена гибкая система скидок.
@@ -366,17 +415,17 @@
                         Цены за обработку квартир от клопов, тараканов и блох
                     </p>
                     <p>
-                        Комната, КГТ ...................................................900 руб. </p>
+                        Комната, КГТ ............<span class="noshow-mobile">....................</span>...................900 руб. </p>
                         <p>
-                        1-комн. квартира  ..........................................1400 руб.
+                        1-комн. квартира  <span class="noshow-mobile">....................</span>.......................1400 руб.
                     </p> <p>   
-                        2-комн. квартира  ..........................................1800 руб.
+                        2-комн. квартира  <span class="noshow-mobile">....................</span>.......................1800 руб.
                     </p><p>
-                        3-комн. квартира  ..........................................2200 руб.
+                        3-комн. квартира  <span class="noshow-mobile">....................</span>.......................2200 руб.
                     </p> <p>   
-                        4-комн. квартира  ..........................................2600 руб.
+                        4-комн. квартира  <span class="noshow-mobile">....................</span>.......................2600 руб.
                     </p><p>    
-                        5-комн. квартира  ..........................................3000 руб. 
+                        5-комн. квартира  <span class="noshow-mobile">....................</span>.......................3000 руб. 
                     </p>
                 </div> <!-- #tab-content-1 -->
                 <div id="tab-content-2" class="tab-content tab-content-house">
@@ -385,19 +434,19 @@
                     </p>
 
                 <p> 
-                до 65 м2.............................................................2800 руб.</p>
+                до 65 м2<span class="noshow-mobile">....................</span>........................................2800 руб.</p>
 
-                <p> до 100 м2...........................................................3000 руб.</p>
+                <p> до 100 м2<span class="noshow-mobile">....................</span>.......................................3000 руб.</p>
 
-                <p> до 150 м2...........................................................3500 руб.</p>
+                <p> до 150 м2<span class="noshow-mobile">....................</span>.......................................3500 руб.</p>
 
-                <p> до 200 м2...........................................................4000 руб.</p>
+                <p> до 200 м2<span class="noshow-mobile">....................</span>.......................................4000 руб.</p>
 
-                <p> до 250 м2...........................................................4300 руб.</p>
+                <p> до 250 м2<span class="noshow-mobile">....................</span>.......................................4300 руб.</p>
 
-                <p> до 300 м2...........................................................4500 руб.</p>
+                <p> до 300 м2<span class="noshow-mobile">....................</span>.......................................4500 руб.</p>
 
-                <p> более 300 м2..................................по договорённости</p>
+                <p> более 300 м2 по договорённости</p>
                 </div> <!-- #tab-content-3 -->
 
                 <div id="tab-content-3" class="tab-content tab-content-land">
@@ -405,21 +454,21 @@
                         Цены за обработку участков от клещей, муравьев и блох
                     </p>
 
-                    <p> от 1 до 6 сот......................................................2000 руб.</p>
+                    <p> от 1 до 6 сот<span class="noshow-mobile">....................</span>..................................2000 руб.</p>
 
-                    <p> от 6 до 10 сот.......................................2300-3000 руб.</p>
+                    <p> от 6 до 10 сот<span class="noshow-mobile">....................</span>....................2300-3000 руб.</p>
                     
-                    <p> от 11 до 15 сот.......................................3000-3500 руб.</p>
+                    <p> от 11 до 15 сот<span class="noshow-mobile">....................</span>....................3000-3500 руб.</p>
                     
-                    <p> от 16 до 20 сот.....................................3500-4000 руб.</p>
+                    <p> от 16 до 20 сот<span class="noshow-mobile">....................</span>.................3500-4000 руб.</p>
                     
-                    <p>от 21 до 25 сот................................................4500 руб.</p>
+                    <p>от 21 до 25 сот<span class="noshow-mobile">....................</span>..............................4500 руб.</p>
                     
-                    <p>от 26 до 30 сот....................................4700-5000 руб.</p>
+                    <p>от 26 до 30 сот<span class="noshow-mobile">....................</span>.................4700-5000 руб.</p>
                     
-                    <p>от 30 до 100 сот................................200 руб за сотку</p>
-                    
-                    <p>Обработка детских садов от клещей цена 4000 - 4500 рублей за всю территорию</p>
+                    <p>от 30 до 100 сот<span class="noshow-mobile">....................</span>.............200 руб за сотку</p>
+                    <br>
+                    <p>Обработка детских садов от клещей цена 4000 - 4500 рублей за всю территорию.</p>
                     
                     <p> Стоимость обработки от клещей для юр.лиц 1 Га от 3000 до 5500 руб, или 300-350 руб сотка   </p>
                     </div> <!-- #tab-content-4 -->
@@ -481,6 +530,11 @@
         
             </div>
 
+            <div class="tabs-replace">
+
+            </div>
+
+
           <!-- Раздел про скидки     -->
           <div class="container">
             <div class="sales">
@@ -506,8 +560,7 @@
     
                 </div>
                 <div class="form-middle wow bounceInUp">
-                    <form class="contact-form" action="scripts/mail.php"
-                    id="contact-form_3" method="POST" enctype="multipart/form-data" onsubmit="">
+                    <form class="contact-form" id="contact-form_3" method="POST" enctype="multipart/form-data" onsubmit="ym(65394433,'reachGoal','form-prices')">
                     <span class="contact-form-title">
                         Закажите обработку 
                     </span>
@@ -525,16 +578,38 @@
                         
                         <div data-for="phone" class="form-group">
                             <input type="tel" name="tel" placeholder="Ваш телефон" data-form-field="Phone" 
-                            class="form-control" id="input-phone-form3">
+                            required="required" class="form-control" id="input-phone-form3">
                         </div>
-                        
+                        <div class="messages"></div>
                         <div class="form3-btn">
-                            <button type="submit" class="contact-form__button contact-form3__button">Заказать</button>
+                            <button type="submit" class="contact-form3__button" id="form3-submit">Заказать</button>
                         </div>
                     </div>
                 </form>                            
             </div>
             <!-- Конец блока Формы-->
+            <script>
+                $(document).ready(function(){
+                       $('#form3-submit').click(function() {
+                            event.preventDefault();
+                           var form_name   = $('#input-name-form3').val();
+                           var form_tel   = $('#input-phone-form3').val();
+                           $.ajax({
+                               url: "post.php", 
+                               type: "post", 
+                               dataType: "json", 
+                               data: { 
+                                   "form_name":   form_name,
+                                   "form_tel":   form_tel
+                               },
+                               success: function(data){
+                                   $('.messages').html(data.result); 
+                               }
+                           });
+                       });
+                   });
+              </script> 
+
 
                 </div>
             </div>
@@ -640,21 +715,21 @@
                 <div class="ac-container">
                     <div>
                         <input id="ac-1" name="accordion-1" type="checkbox" />
-                        <label for="ac-1">Сколько времени занимает обработка квартиры от насекомых?</label>
+                        <label for="ac-1">Сколько времени занимает обработка?</label>
                         <article class="ac-small">
                             <p>В среднем, обработка однокомнатной квартиры занимает 25-30 минут, обработка двухкомнатной квартиры - 35-40 минут, трехкомнатной квартиры - 45-50 минут. После проведения обработки помещение необходимо проветрить (30-40 минут).</p>
                         </article>
                     </div>
                     <div>
                         <input id="ac-2" name="accordion-1" type="checkbox" />
-                        <label for="ac-2">Как сделать так, чтобы соседи не испугались прихода мастера?</label>
+                        <label for="ac-2">Как сделать, чтобы соседи не знали?</label>
                         <article class="ac-small">
                             <p>Никто не догадается о том, что к вам пришел мастер. Специалист приходит в обычной повседневной одежде и в спецодежду переодевается уже у вас в квартире (доме, помещении). Мы соблюдаем полную конфиденциальность (никто не узнает что вам обрабатывали помещение от насекомых).</p>
                         </article>
                     </div>
                     <div>
                         <input id="ac-3" name="accordion-1" type="checkbox" />
-                        <label for="ac-3">Как подготовить помещение к обработке?</label>
+                        <label for="ac-3">Как подготовиться к обработке?</label>
                         <article class="ac-small">
                             <p>Следует убрать продукты питания в холодильник или закрыть герметично в пакеты, накрыть бытовую технику простынею (компьютер, телевизор), комнатные цветы пакетами. Убрать предметы личной гигиены в полиэтиленовые пакеты (зубные щетки и т,д,)</p>
                         </article>
@@ -683,7 +758,7 @@
                     </div>
                     <div>
                         <input id="ac-7" name="accordion-1" type="checkbox" />
-                        <label for="ac-7">Я смогу сделать обработку своими силами?</label>
+                        <label for="ac-7">Я смогу сделать обработку сам?</label>
                         <article class="ac-small">
                             <p>Большинство вредителей имеют высокую толерантность к обычным препаратам из магазина, уже во втором поколении эти средства почти не действуют на них. Профессиональные препараты имеют другой состав и действуют как на взрослых особей, так и на потомство. Поэтому следует вызвать профессионалов для решения проблем с вредителями.</p>
                         </article>
@@ -727,26 +802,47 @@
                             <p>Выполнение заказа возможно в любой день, в удобное для Вас время.</p>                            
                     </div>
                     <div class="contact-form-last wow bounceInRight">
-                        <form class="contact-form" action="scripts/mail.php"
-                        id="contact-form_2" method="POST" enctype="multipart/form-data" onsubmit="">
+                        <form class="contact-form" id="contact-form_2" method="POST" enctype="multipart/form-data" onsubmit="ym(65394433,'reachGoal','form-contact')">
                     
                         <div class="form-area">
                             
                             <div class="form-group " data-for="name">
                                 <input type="text" name="name" placeholder="Ваше имя" data-form-field="Name" 
-                                required="required" class="form-control form-control2" id="input-name-form1">
+                                required="required" class="form-control form-control2" id="input-name-form2">
                             </div>
                             
                             <div data-for="phone" class="form-group">
                                 <input type="tel" name="tel" placeholder="Ваш телефон" data-form-field="Phone" 
-                                class="form-control form-control2" id="input-phone-form1">
+                                required="required" class="form-control form-control2" id="input-phone-form2">
                             </div>
-                            
+                            <div class="messages"></div>
                             <div class="form1-btn">
-                                <button type="submit" class="contact-form__button">Получить консультацию</button>
+                                <button type="submit" id = "form2-submit" class="contact-form__button"><span>Получить консультацию</span></button>
                             </div>
                         </div>
                     </form>                            
+                    <script>
+                        $(document).ready(function(){
+                               $('#form2-submit').click(function() {
+                                    event.preventDefault();
+                                   var form_name   = $('#input-name-form2').val();
+                                   var form_tel   = $('#input-phone-form2').val();
+                                   $.ajax({
+                                       url: "post.php", 
+                                       type: "post", 
+                                       dataType: "json", 
+                                       data: { 
+                                           "form_name":   form_name,
+                                           "form_tel":   form_tel
+                                       },
+                                       success: function(data){
+                                           $('.messages').html(data.result); 
+                                       }
+                                   });
+                               });
+                           });
+                      </script> 
+
 
                     </div>
                 </div>
@@ -754,7 +850,8 @@
         </section>
         <section class="map">
             <p>
-                  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae88530e8883355ade799ea25ace0b0ba72a0972cb035ab220a1e5afd48a9e424&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>                
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae88530e8883355ade799ea25ace0b0ba72a0972cb035ab220a1e5afd48a9e424&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=false"></script>
+<!--                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae88530e8883355ade799ea25ace0b0ba72a0972cb035ab220a1e5afd48a9e424&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>                 -->
             </p>
         </section>
     <footer>
@@ -771,7 +868,8 @@
                 </div>
                 <div class="footer-center">
                     <p class="footer-phone">
-                        +7 (952) 150 25 91
+                        <a href="tel:+79521502591" class="navbar-mobile-phone" onclick="ym(65394433,'reachGoal','mobile-footer')">+7 (952) 150 25 91</a>
+<!--                         +7 (952) 150 25 91 -->
                     </p>
                     <p class="footer-phrase">
                         Быстро и безвозвратно избавляем от насекомых, грызунов, плесени и запахов в Томске и Томской области
@@ -784,11 +882,10 @@
         </div>    
         <p class="rights">© Все права защищены: 2020</p>
     </footer>
-
+<!-- begin Up-Down button -->
+<a class="up_down_btn" title="">&uarr;</a>
+<!-- end Up-Down button -->
     <script src="js/script.js"></script>
-    <!-- <script scr='/js/wow.min.js'></script>
-    <script>
-        new WOW().init();
-    </script> -->
+    
 </body>
 </html>

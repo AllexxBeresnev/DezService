@@ -13,7 +13,7 @@
 	cursor: pointer;
 	/*text-shadow: 1px 1px 1px rgba(255,255,255,0.8);*/
 	line-height: 33px;
-	font-size: 1em;
+	font-size: 0.8em;
 	background: #ffffff;
 	background: -moz-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#eaeaea));
@@ -28,7 +28,7 @@
 		0px 2px 2px rgba(0,0,0,0.1);
 }
 .ac-container label:hover{
-	background: #fff;
+	background: rgb(158, 245, 136);
 }
 .ac-container input:checked + label,
 .ac-container input:checked + label:hover{
